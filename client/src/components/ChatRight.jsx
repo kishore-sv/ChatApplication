@@ -20,14 +20,14 @@ function ChatRight({ username, avatar, userId, selectedUser, selectedUserId }) {
 
     const HandleSendMess = async (e) => {
         e.preventDefault()
-        const Message = await axios.post("http://localhost:8000/api/message/create", { message, reciver: username })
+        const Message = await axios.post("https://chatapplication-jdq3.onrender.com/api/message/create", { message, reciver: username })
         setMessage('')
     }
 
     useEffect(() => {
         const data = async () => {
             try {
-                const { data } = await axios.get('http://localhost:8000/api/messages')
+                const { data } = await axios.get('https://chatapplication-jdq3.onrender.com/api/messages')
                 setMessages(data.messages)
             } catch (error) {
                 toast.error(error.message)
@@ -84,7 +84,7 @@ function ChatRight({ username, avatar, userId, selectedUser, selectedUserId }) {
                 );
                 url = fres.data.secure_url;
                 setFileUrl(url)
-                const res = await axios.post("http://localhost:8000/api/message/create", { message: fileText, reciver: username, file: url })
+                const res = await axios.post("https://chatapplication-jdq3.onrender.com/api/message/create", { message: fileText, reciver: username, file: url })
                 if (res.data.message === "success") {
                     toast.success("Message Sent", {
                         position: "bottom-right",

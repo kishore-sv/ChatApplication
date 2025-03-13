@@ -15,7 +15,7 @@ function Chat() {
     const HandleSelectedUser = async (username, avatar) => {
         setSelectedUser(username)
         setSelectedAvatar(avatar)
-        const res = await axios.post('http://localhost:8000/api/selecteduser', { username })
+        const res = await axios.post('https://chatapplication-jdq3.onrender.com/api/selecteduser', { username })
 
 
         setSelectedId(res.data)
@@ -23,7 +23,7 @@ function Chat() {
 
     
     const fetchUserData = async () => {
-        const { data } = await axios.get('http://localhost:8000/api/user')
+        const { data } = await axios.get('https://chatapplication-jdq3.onrender.com/api/user')
         setAavatar(data.avatar)
         setUser(data.username)
         setUserId(data.id)

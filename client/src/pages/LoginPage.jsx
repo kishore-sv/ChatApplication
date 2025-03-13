@@ -17,7 +17,7 @@ function LoginPage() {
         setPassword('')
 
         const data = { userName, password };
-        const res = await axios.post('http://localhost:8000/api/login', data)
+        const res = await axios.post('https://chatapplication-jdq3.onrender.com/api/login', data)
         toast.error(res.data.message, {
             position: "bottom-right",
             autoClose: 2000,

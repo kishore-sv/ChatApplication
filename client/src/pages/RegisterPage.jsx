@@ -75,7 +75,7 @@ function RegisterPage() {
 
     const data = { name, userName, avatar:uploadedAvatarUrl || avatarUrl, password };
     try {
-      const res = await axios.post('http://localhost:8000/api/register', data)
+      const res = await axios.post('https://chatapplication-jdq3.onrender.com/api/register', data)
       if(res.data.message==="UserThere"){
         toast.error("UserName Already exits", {
           position: "bottom-right",

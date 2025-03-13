@@ -18,7 +18,7 @@ function ChatCompo({ username, avatar, selectedUser, setRefresh }) {
     }
 
     const handleDelete = async () => {
-        const deleteuser = await axios.delete('http://localhost:8000/api/chatusers/delete', { data: { username } })
+        const deleteuser = await axios.delete('https://chatapplication-jdq3.onrender.com/api/chatusers/delete', { data: { username } })
         if (deleteuser) {
             toast.success(deleteuser.data.message, {
                 position: "bottom-left",

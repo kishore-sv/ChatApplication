@@ -28,7 +28,7 @@ function ChatLeft({ username, avatar, selected, selectedUserId, selectedUser }) 
 
 
     const HandleLogOut = async () => {
-        const res = await axios.get('http://localhost:8000/api/logout')
+        const res = await axios.get('https://chatapplication-jdq3.onrender.com/api/logout')
         if (res) {
             navigate('/login')
         }
@@ -38,7 +38,7 @@ function ChatLeft({ username, avatar, selected, selectedUserId, selectedUser }) 
     useEffect(() => {
         const fetch = async () => {
             try {
-                const { data } = await axios.get('http://localhost:8000/api/chatusers')
+                const { data } = await axios.get('https://chatapplication-jdq3.onrender.com/api/chatusers')
                 setUsers(data)
             } catch (error) {
                 toast.error(error)
@@ -56,7 +56,7 @@ function ChatLeft({ username, avatar, selected, selectedUserId, selectedUser }) 
     useEffect(() => {
         const addUser = async () => {
             try {
-                const response = await axios.post('http://localhost:8000/api/addchats', { selectedUser });
+                const response = await axios.post('https://chatapplication-jdq3.onrender.com/api/addchats', { selectedUser });
 
             } catch (error) {
                 toast.error("Error adding user:", error.response?.data || error.message)
@@ -78,7 +78,7 @@ function ChatLeft({ username, avatar, selected, selectedUserId, selectedUser }) 
     const HandleFindUser = async (e) => {
         e.preventDefault()
 
-        const res = await axios.post("http://localhost:8000/api/finduser", { findUser })
+        const res = await axios.post("https://chatapplication-jdq3.onrender.com/api/finduser", { findUser })
         setFindeUser("")
         if (res.data.message === "no user found") {
 
@@ -195,7 +195,7 @@ function ChatLeft({ username, avatar, selected, selectedUserId, selectedUser }) 
         }
 
         try {
-            const res = await axios.put('http://localhost:8000/api/user/edit', { uploadedAvatarUrl, inputValue })
+            const res = await axios.put('https://chatapplication-jdq3.onrender.com/api/user/edit', { uploadedAvatarUrl, inputValue })
 
             toast.success(res.data.message, {
                 position: "bottom-left",
