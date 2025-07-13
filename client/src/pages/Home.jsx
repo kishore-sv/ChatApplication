@@ -71,6 +71,11 @@ function Home() {
                         <p className="text-3xl text-center font-bold font-mono">Easy images sharing</p>
                     </div>
                 </div>
+                <div className="w-full h-[20vh] px-30 lg:px-60 flex items-center justify-center">
+                    <div className=" rounded-lg overflow-hidden flex items-center justify-center ">
+                        <p className="text-center text-2xl font-mono ">Connect, Chat, Share <br /> Your Thoughts </p>
+                    </div>
+                </div>
                 <div className="w-full h-[70vh] px-30 lg:px-60 flex items-center justify-between">
                     <div className=" rounded-lg overflow-hidden  flex items-center justify-between ">
                         <img className="object-cover" src={chat3} alt="message" />
