@@ -25,6 +25,8 @@ function ChatLeft({ username, avatar, selected, selectedUserId, selectedUser }) 
     const [newUserAvatarUpload, setNewUserAvatarUpload] = useState("")
     const [newAvatar, setNewAvatar] = useState("")
     const [newFile, setNewFile] = useState("")
+    // const [newIsLoading, setNewIsLoading] = useState(false)
+
 
 
     const HandleLogOut = async () => {

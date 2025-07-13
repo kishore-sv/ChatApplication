@@ -21,10 +21,9 @@ const app = express();
 const _dirname=path.resolve()
 
 app.use(cors({
-    origin: 'https://chatapplication-jdq3.onrender.com',
-    credentials: true
-}
-));
+  origin: ['http://localhost:8081', 'https://chatapplication-jdq3.onrender.com','http://localhost:5173'],
+  credentials: true
+}));
 
 
 app.use(express.urlencoded({ extended: true }))
@@ -85,14 +84,6 @@ app.post('/api/register', async (req, res) => {
         return res.status(500).json({ message: "Internal Server Error" });
     }
 });
-
-
-
-
-
-
-
-
 
 
 

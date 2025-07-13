@@ -42,17 +42,6 @@ function Chat() {
                             </div>) :
                         <ChatRight username={selectedUser} avatar={selectedAvatar} userId={userId} selectedUser={selectedUser} selectedUserId={selectedUserId} />
                     }
-
-
-          
-
-            
-
-
-
-
-
-
         </div>
     );
 }

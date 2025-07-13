@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react"
 import { Chatting } from "./Chatting"
 import axios from "axios"
-import imgFile from '../assests/file-upload-line.png'
+// import imgFile from '../assests/file-upload-line.png'
+import fileUpload from '../assests/file-upload.svg'
 import { PreviweFile } from "./PreviewFile"
 import { toast } from "react-toastify"
 import { ChattingSeleton } from "./seletons/ChattingSeleton"
+import loader from '../assests/loader.svg'
 // import dotenv from 'dotenv';
 // dotenv.config();
 
@@ -15,13 +17,22 @@ function ChatRight({ username, avatar, userId, selectedUser, selectedUserId }) {
     const [temp, seTemp] = useState(true)
     const [emptyMessage, setEmptyMessage] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
+    const [isMessLoading, setIsMessLoading] = useState(false)
 
 
 
     const HandleSendMess = async (e) => {
         e.preventDefault()
-        const Message = await axios.post("https://chatapplication-jdq3.onrender.com/api/message/create", { message, reciver: username })
-        setMessage('')
+        try {
+            setIsMessLoading(true)
+            const Message = await axios.post("https://chatapplication-jdq3.onrender.com/api/message/create", { message, reciver: username })
+        } catch (error) {
+            console.log(error)
+        }
+        finally {
+            setMessage('')
+            setIsMessLoading(false)
+        }
     }
 
     useEffect(() => {
@@ -32,13 +43,12 @@ function ChatRight({ username, avatar, userId, selectedUser, selectedUserId }) {
             } catch (error) {
                 toast.error(error.message)
             }
-            finally{
+            finally {
                 setIsLoading(false)
             }
 
         }
         data()
-
 
     }, [message])
 
@@ -68,6 +78,7 @@ function ChatRight({ username, avatar, userId, selectedUser, selectedUserId }) {
     const handleSendFile = async () => {
         let url = ""
         if (file) {
+            setIsMessLoading(true)
             const fData = new FormData()
             fData.append("file", file)
             fData.append("upload_preset", "Chat_Application")
@@ -106,8 +117,10 @@ function ChatRight({ username, avatar, userId, selectedUser, selectedUserId }) {
 
 
             } catch (error) {
-                toast.error(error)
-
+                toast.error(error)   
+            }
+            finally{
+                setIsMessLoading(false)
             }
 
         }
@@ -144,16 +157,14 @@ function ChatRight({ username, avatar, userId, selectedUser, selectedUserId }) {
                         </nav>
                         <div className=" h-[89.5vh] w-full">
                             <div className="w-full h-[90%] lg:px-10 flex relative justify-center items-center ">
-                                <PreviweFile showPreview={showPreview} setShowPreview={setShowPreview} file={file} setFile={setFile} handleSendFile={handleSendFile} fileText={fileText} setFileText={setFileText} />
-                            {
-                                isLoading? 
-                                 <ChattingSeleton></ChattingSeleton>
-                                  :
-                                <Chatting  messages={messages} username={username} userId={userId} selectedUser={selectedUser} nReciver={username} selectedUserId={selectedUserId} />
+                                <PreviweFile isMessLoading={isMessLoading} showPreview={showPreview} setShowPreview={setShowPreview} file={file} setFile={setFile} handleSendFile={handleSendFile} fileText={fileText} setFileText={setFileText} />
+                                {
+                                    isLoading ?
+                                        <ChattingSeleton></ChattingSeleton>
+                                        :
+                                        <Chatting messages={messages} username={username} userId={userId} selectedUser={selectedUser} nReciver={username} selectedUserId={selectedUserId} />
 
-                            }
-                            
-                                
+                                }
                             </div>
                             <div className=" w-full h-[10%] p-5 flex items-center gap-3 border-t-1 border-zinc-500">
                                 <form onSubmit={HandleSendMess} className="w-full h-full flex items-center gap-3 ">
@@ -172,7 +183,7 @@ function ChatRight({ username, avatar, userId, selectedUser, selectedUserId }) {
                                     <div
                                         onClick={handleFile}
                                         title="upload file" className="w-[5%]  border-1 border-zinc-500 cursor-pointer opacity-[.9] rounded-sm hover:opacity-[1] "  >
-                                        <img src={imgFile} alt="upload" />
+                                        <img src={fileUpload} alt="upload" />
                                     </div>
                                     <button
                                         onClick={HandleSendMess}
@@ -180,7 +191,7 @@ function ChatRight({ username, avatar, userId, selectedUser, selectedUserId }) {
                                         type="submit"
                                         disabled={!emptyMessage}
                                         className={`w-[20%] lg:w-[10%]  bg-zinc-200 text-zinc-950 font-sans p-2   rounded-lg hover:bg-zinc-300 ease-in-out ${emptyMessage ? "cursor-pointer" : "cursor-not-allowed opacity-50"}  `}    >
-                                        Send
+                                         {isMessLoading ? <img src={loader} className="max-h-4 max-w-4 mx-auto shrink-0 animate-spin" alt="loader" /> : "Send"}
                                     </button>
                                 </form>
 

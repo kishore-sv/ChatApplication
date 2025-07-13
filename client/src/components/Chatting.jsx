@@ -38,7 +38,6 @@ export function Chatting({ messages, userId, selectedUserId }) {
                        <p className="text-xl font-semibold">{msg.text}</p>
                      
                     }
-                    
                     <p className="text-zinc-400  text-sm font-light ">{new Date(msg.updatedAt).toLocaleDateString() + " " + new Date(msg.updatedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
 
                 </div>
@@ -48,8 +47,6 @@ export function Chatting({ messages, userId, selectedUserId }) {
           ))
 
       }
-
-
     </div>
   );
 }

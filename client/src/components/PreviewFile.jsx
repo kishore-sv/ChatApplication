@@ -1,6 +1,7 @@
 import { motion } from "motion/react"
+import loader from '../assests/loader.svg'
 
-export function PreviweFile({showPreview,setShowPreview,file,setFile,handleSendFile,fileText,setFileText}) {
+export function PreviweFile({showPreview,setShowPreview,file,setFile,handleSendFile,fileText,setFileText,isMessLoading}) {
     const handleShowPreview=()=>{
         setFile("")
         setShowPreview(true)
@@ -31,7 +32,7 @@ export function PreviweFile({showPreview,setShowPreview,file,setFile,handleSendF
                     title="Send"
                     
                     className="w-full lg:w-[15%] cursor-pointer  bg-zinc-200 text-zinc-950 font-sans p-2   rounded-lg hover:bg-zinc-300 ease-in-out">
-                    Send 
+                    {isMessLoading ? <img src={loader} className="max-h-4 max-w-4 mx-auto shrink-0 animate-spin" alt="loader" /> : "Send"}
                 </button>
             </div>
 
