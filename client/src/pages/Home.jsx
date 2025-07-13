@@ -48,35 +48,38 @@ function Home() {
             </nav>
 
             <div className="w-full py-5  ">
-                <div className=" mx-30 p-2 my-5 flex justify-center items-center ">
+                <div className=" mx-auto lg:mx-30 p-2 my-5 flex justify-center items-center ">
                     <h1 className="text-3xl font-mono font-extrabold">Get started <br className="hidden " />with a <br /> new ChatApplication</h1>
+                </div>
+                <div className="flex justify-center items-center ">
                     <button
                         onClick={HandleRegister}
-                        className="lg:hidden border-1 my-5 font-semibold border-zinc-100 text-zinc-200 font-sans p-4 rounded-[30px] hover:text-zinc-900 hover:bg-zinc-100 ease-in-out">
-                        Get Start</button>
+                        className="lg:hidden border-1 mx-auto  my-5 font-semibold border-zinc-100 text-zinc-200 font-sans p-4 rounded-[30px] hover:text-zinc-900 hover:bg-zinc-100 ease-in-out">
+                        Get Start
+                    </button>
                 </div>
-                <div className="w-full h-[70vh] px-30 lg:px-60 flex items-center justify-between">
+                <div className="w-full lg:h-[70vh] px-2 lg:px-60 flex items-center justify-between">
                     <div className=" rounded-lg overflow-hidden  flex items-center justify-between ">
                         <img className="object-cover" src={chat1} alt="message" />
                     </div>
                 </div>
-                <div className="w-full h-[20vh] px-30 lg:px-60 flex items-center justify-center">
+                <div className="w-full h-[20vh] px-2 lg:px-60 flex items-center justify-center">
                     <div className=" rounded-lg overflow-hidden flex items-center justify-center ">
                         <p className="text-center text-2xl font-mono ">Funny Chats with your buddies</p>
                     </div>
                 </div>
-                <div className="w-full h-[70vh] px-30 lg:px-[10rem] flex items-center justify-center ">
+                <div className="w-full lg:h-[70vh] px-2 lg:px-[10rem] flex items-center justify-center ">
                     <div className=" rounded-lg overflow-hidden flex items-center justify-between ">
                         <img className="object-cover" src={chat2} alt="message" />
-                        <p className="text-3xl text-center font-bold font-mono">Easy images sharing</p>
+                        <p className="lg:text-3xl text-center font-bold font-mono">Easy images sharing</p>
                     </div>
                 </div>
-                <div className="w-full h-[20vh] px-30 lg:px-60 flex items-center justify-center">
+                <div className="w-full h-[20vh] px-2 lg:px-60 flex items-center justify-center">
                     <div className=" rounded-lg overflow-hidden flex items-center justify-center ">
                         <p className="text-center text-2xl font-mono ">Connect, Chat, Share <br /> Your Thoughts </p>
                     </div>
                 </div>
-                <div className="w-full h-[70vh] px-30 lg:px-60 flex items-center justify-between">
+                <div className="w-full lg:h-[70vh] px-2 lg:px-60 flex items-center justify-between">
                     <div className=" rounded-lg overflow-hidden  flex items-center justify-between ">
                         <img className="object-cover" src={chat3} alt="message" />
                     </div>
