@@ -182,8 +182,8 @@ function ChatRight({ username, avatar, userId, selectedUser, selectedUserId }) {
                                     />
                                     <div
                                         onClick={handleFile}
-                                        title="upload file" className="w-[5%]  border-1 border-zinc-500 cursor-pointer opacity-[.9] rounded-sm hover:opacity-[1] "  >
-                                        <img src={fileUpload} alt="upload" />
+                                        title="upload file" className="w-[5%] overflow-hidden  border-1 border-zinc-500 cursor-pointer opacity-[.9] rounded-sm hover:opacity-[1] "  >
+                                        <img src={fileUpload} className="bg-zinc-100 " alt="upload" />
                                     </div>
                                     <button
                                         onClick={HandleSendMess}
