@@ -15,8 +15,8 @@
     "axois": "^0.0.1-security",
     "dotenv": "^16.4.7",
     "motion": "^12.4.7",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
     "react-router-dom": "^7.1.5",
     "react-toastify": "^11.0.3",
     "tailwindcss": "^4.0.6"
